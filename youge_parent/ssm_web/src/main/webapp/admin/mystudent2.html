@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/layui.css">
+    <link rel="stylesheet" href="../css/xadmin.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../lib/layui/layui.js"></script>
+    <script src="../js/xadmin.js"></script>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+<div class="x-nav">
+    <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">招生管理</a>
+        <a href="">
+            <cite>我的学生</cite>
+        </a>
+    </span>
+</div>
+
+
+<div class="x-body" id="app">
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">我负责的学员</li>
+            <li>我录入的学员</li>
+            <li>我报名的学员</li>
+            <li>我的优生学员</li>
+            <li>我的试听学员</li>
+            <li>我曾经的学员</li>
+            <li>我的无效学员</li>
+            <li>待跟进的学员</li>
+            <li>短期班待续费</li>
+            <li>网络分配学员</li>
+        </ul>
+        <!--layui-table-title end-->
+
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+            <div class="layui-row">
+                <form class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+            <!--layui-row-end-->
+
+        <xblock>
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-add-1"></i>新增
+            </button>
+
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-edit"></i>修改
+            </button>
+
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-file"></i>报名
+            </button>
+
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-file"></i>续报名
+            </button>
+
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-cellphone"></i>回访
+            </button>
+
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-praise"></i>优生
+            </button>
+
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-rate-solid"></i>试听/试学
+            </button>
+
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-rate-half"></i>标记/取消复读生
+            </button>
+
+            <button class="layui-btn layui-btn-normal layui-btn-sm">
+                <i class="layui-icon layui-icon-upload-drag"></i>分配/升班
+            </button>
+
+        </xblock>
+
+            <!--xblock end-->
+
+            <table class="layui-table" lay-size="sm">
+                <thead>
+                <tr>
+                    <th>
+                        <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                    </th>
+                    <th>地区</th>
+                    <th>学员姓名</th>
+                    <th>意向度</th>
+                    <th>来源渠道</th>
+                    <th>意向专业</th>
+                    <th>年级</th>
+                    <th>学校</th>
+                    <th>状态</th>
+                    <th>试听</th>
+                    <th>报名时间</th>
+                    <th>报名校区</th>
+                    <th>账单</th>
+                    <th>有效回访</th>
+                    <th>备注</th>
+                    <th>录入人</th>
+                    <th>录入时间</th>
+                    <th>function</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                    </td>
+                    <td>山东-济南</td>
+                    <td>刘芳</td>
+                    <td>A</td>
+                    <td>网络渠道</td>
+                    <td>电竞专业</td>
+                    <td>高二年级</td>
+                    <td>美国加利福尼亚大学</td>
+                    <td>已报名未分班</td>
+                    <td>点击查看</td>
+                    <td>2019年3月31日16:16:46</td>
+                    <td>济南校区A区</td>
+                    <td>点击查看账单</td>
+                    <td>无</td>
+                    <td>zhangwei</td>
+                    <td>admin</td>
+                    <td>2019年3月31日16:17:17</td>
+                    <td>
+                        <a href="javascript:;">
+                            <i class="layui-icon layui-icon-set" style="font-size: 25px;color: red"></i>
+                        </a>
+                        <!--<a href="javascript:;">-->
+                            <!--<i class="layui-icon layui-icon-edit" style="font-size: 25px;color: #00FF00"></i>-->
+                        <!--</a>-->
+                    </td>
+
+                    <td>
+                        <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                    </td>
+                    <td>山东-济南</td>
+                    <td>刘芳</td>
+                    <td>A</td>
+                    <td>网络渠道</td>
+                    <td>电竞专业</td>
+                    <td>高二年级</td>
+                    <td>美国加利福尼亚大学</td>
+                    <td>已报名未分班</td>
+                    <td>点击查看</td>
+                    <td>2019年3月31日16:16:46</td>
+                    <td>济南校区A区</td>
+                    <td>点击查看账单</td>
+                    <td>无</td>
+                    <td>zhangwei</td>
+                    <td>admin</td>
+                    <td>2019年3月31日16:17:17</td>
+                    <td>
+                        <a href="javascript:;">
+                            <i class="layui-icon layui-icon-set" style="font-size: 25px;color: red"></i>
+                        </a>
+                        <!--<a href="javascript:;">-->
+                        <!--<i class="layui-icon layui-icon-edit" style="font-size: 25px;color: #00FF00"></i>-->
+                        <!--</a>-->
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <div id="test1">
+
+            </div>
+
+        </div>
+        <!--layui-tab-item layui-show 我负责的学员 end-->
+        <div class="layui-tab-item ">
+            <div class="layui-row">
+                <form action="" class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+           <xblock>
+               <button class="layui-btn layui-btn-sm layui-btn-normal">
+                   <i class="layui-icon layui-icon-note"></i>标记/取消复读生
+               </button>
+           </xblock>
+
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <th>
+                      <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                    </th>
+                    <th>地区</th>
+                    <th>学员姓名</th>
+                    <th>来源渠道</th>
+                    <th>意向专业</th>
+                    <th>状态</th>
+                    <th>报名时间</th>
+                    <th>报名校区</th>
+                    <th>账单</th>
+                    <th>有效回访</th>
+                    <th>学校</th>
+                    <th>文理科</th>
+                    <th>文化分数</th>
+                    <th>备注</th>
+                    <th>负责人</th>
+                    <th>创建时间</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                    </td>
+                    <td>山东省济南市</td>
+                    <td>刘芳</td>
+                    <td>A</td>
+                    <td>网络渠道</td>
+                    <td>电竞专业</td>
+                    <td>高二年级</td>
+                    <td>美国加利福尼亚大学</td>
+                    <td>已报名未分班</td>
+                    <td>点击查看</td>
+                    <td>2019年3月31日16:16:46</td>
+                    <td>济南校区A区</td>
+                    <td>济南校区A区</td>
+                    <td>济南校区A区</td>
+                    <td>济南校区A区</td>
+                    <td>济南校区A区</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+        <!--layui-tab-item 我录入的学员 end-->
+
+        <div class="layui-tab-item">
+            <div class="layui-row">
+                <form action="" class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn ">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <th>
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                    </th>
+                    <th>地区</th>
+                    <th>学员姓名</th>
+                    <th>意向专业</th>
+                    <th>报名时间</th>
+                    <th>报名校区</th>
+                    <th>来源渠道</th>
+                    <th>年级</th>
+                    <th>学校</th>
+                    <th>账单</th>
+                    <th>备注</th>
+                    <th>录入人</th>
+                    <th>录入时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>山东</td>
+                    <td>张威</td>
+                    <td>哈哈</td>
+                    <td>时间</td>
+                    <td>校区</td>
+                    <td>渠</td>
+                    <td>年级</td>
+                    <td>学校</td>
+                    <td>账单</td>
+                    <td>备注</td>
+                    <td>录入人</td>
+                    <td>录入时间</td>
+                    <td>录入时间</td>
+                </tr>
+                </tbody>
+            </table>
+            <div id="#test2"></div>
+
+
+        </div>
+        <!--layui-tab-item 我报名的学员结束-->
+        <div class="layui-tab-item ">
+            <div class="layui-row">
+                <form class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <th>
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                        <!--<div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>-->
+
+                    </th>
+                    <th>地区</th>
+                    <th>学员姓名</th>
+                    <th>意向专业</th>
+                    <th>报名时间</th>
+                    <th>报名校区</th>
+                    <th>来源渠道</th>
+                    <th>年级</th>
+                    <th>学校</th>
+                    <th>账单</th>
+                    <th>备注</th>
+                    <th>录入人</th>
+                    <th>录入时间</th>
+                </tr>
+                </thead>
+            </table>
+
+        </div>
+        <!--layui-tab-itme 我的优生学员 end-->
+        <div class="layui-tab-item ">
+            <div class="layui-row">
+                <form class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+
+
+        </div>
+        <!--layui-table item 我的试听学员 end-->
+        <div class="layui-tab-item ">
+
+            <div class="layui-row">
+                <form class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+        </div>
+        <!--layui-tab-item 我曾经的学员 end-->
+        <div class="layui-tab-item ">
+            <div class="layui-row">
+                <form class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+
+        </div>
+        <!--layui-tab-item 我的无效学员结束-->
+        <div class="layui-tab-item ">
+            <div class="layui-row">
+                <form class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+        </div>
+        <!--layui-tab-item 待跟进的学员结束-->
+        <div class="layui-tab-item ">
+            <div class="layui-row">
+                <form class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+        </div>
+        <!--layui-tab-item 短期班待续费结束-->
+        <div class="layui-tab-item ">
+            <div class="layui-row">
+                <form class="layui-form layui-col-md12 x-so">
+                    <label for="" class="layui-form-label">姓名/电话/QQ/微信:</label>
+                    <input type="text" class="layui-input">
+                    <button class="layui-btn">查询</button>
+                    <button class="layui-btn layui-btn-primary">清空</button>
+                </form>
+            </div>
+        </div>
+    </div>
+        <!--layui-tab-content end-->
+
+    </div>
+    <!--layui-tab end-->
+
+
+</div>
+<!--layui-container end-->
+<script>
+
+
+    new Vue({
+        el:'#app',
+        data:{
+            mystudent:null
+
+        },
+        methods:{
+
+        }
+    })
+
+    layui.use(['laypage','form'],function () {
+        var laypage = layui.laypage;
+        var form = layui.form;
+        laypage.render({
+            elem: 'test1',
+            count: 50,
+            limit: 5,
+            jump: function (obj,first) {
+                console.log(obj.curr)
+                console.log(obj.limit)
+            }
+        })
+
+    })
+
+    layui.use(['laypage','form'],function () {
+        var laypage = layui.laypage;
+        var form = layui.form;
+        laypage.render({
+            elem: 'test2',
+            count: 50,
+            limit: 5,
+            jump: function (obj,first) {
+                console.log(obj.curr)
+                console.log(obj.limit)
+            }
+        })
+
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/city-picker.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/xadmin.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/xadmin.js"></script>
+    <script src="../lib/layui/layui.js"></script>
+    <script src="../js/xcity.js"></script>
+    <script src="../js/cookie.js"></script>
+</head>
+<body>
+<div class="x-nav">
+    <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">前台</a>
+        <a href=""><cite>学生管理</cite></a>
+    </span>
+
+</div>
+<!--x-nav-->
+
+<div class="layui-container">
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">我负责的学员</li>
+            <li class="layui-this">我录入的学员</li>
+            <li class="layui-this">我报名的学员</li>
+            <li class="layui-this">我的优生学员</li>
+            <li class="layui-this">我的试听学员</li>
+            <li class="layui-this">我曾经的学员</li>
+            <li class="layui-this">我的无效学员</li>
+            <li class="layui-this">待跟进的学员</li>
+            <li class="layui-this">短期班待续费</li>
+            <li class="layui-this">网络分配学员</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+
+                <iframe src="http://www.baidu.com" frameborder="0" width="100%" height="600px"></iframe>
+                <!--<div class="to-left">-->
+                    <!--<div class="layui-form-item">-->
+                        <!--<label for="" class="layui-form-label">姓名/other:</label>-->
+                        <!--<div class="layui-input-inline">-->
+                            <!--<input type="text" class="layui-input">-->
+
+                        <!--</div>-->
+                        <!--<input type="button" class="layui-btn" value="查询">-->
+                        <!--<input type="button" class="layui-btn layui-btn-normal" value="清空">-->
+                    <!--</div>-->
+
+                <!--</div>-->
+                <!--<xblock>-->
+                    <!--<button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delAll()"><i class="layui-icon layui-icon-add-1-->
+<!--"></i>新增</button>-->
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-add-1"></i>新增
+                    </button>
+
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-edit"></i>修改
+                    </button>
+
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-file"></i>报名
+                    </button>
+
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-file"></i>续报名
+                    </button>
+
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-cellphone"></i>回访
+                    </button>
+
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-praise"></i>优生
+                    </button>
+
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-rate-solid"></i>试听/试学
+                    </button>
+
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-rate-half"></i>标记/取消复读生
+                    </button>
+
+                    <button class="layui-btn layui-btn-normal layui-btn-sm">
+                        <i class="layui-icon layui-icon-upload-drag"></i>分配/升班
+                    </button>
+
+                    <!--&lt;!&ndash;<table class="layui-table">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th><input type="checkbox"></th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>地区</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>学员姓名</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>意向度</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>来源渠道</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>意向专业</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>年级</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>学校</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>状态</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>试听</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>报名时间</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>报名校区</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>账单</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>有效回访</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>备注</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>录入人</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>录入时间</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<tbody>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>1</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td><input type="checkbox"></td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>山东</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>张威</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>A</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>网络</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>计算机应用</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>高一年级</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>临清市实验高中</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>正常</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>否</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>10点07分</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td>泰安校区</td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td><a href="">点我</a></td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td><a href="">查看</a></td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td><a href="">备注</a></td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td><a href="">录入人</a></td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<td><a href="">录入时间</a></td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</table>&ndash;&gt;-->
+
+                <!--</xblock>-->
+
+
+            </div>
+            <!--我负责的学员-->
+            <div class="layui-tab-item">我录入的学员</div>
+            <div class="layui-tab-item">我报名的学员</div>
+            <div class="layui-tab-item">我的优生学员</div>
+            <div class="layui-tab-item">我的试听学员</div>
+            <div class="layui-tab-item">我曾经的学员</div>
+            <div class="layui-tab-item">我的无效学员</div>
+            <div class="layui-tab-item">待跟进的学员</div>
+            <div class="layui-tab-item">短期班待续费</div>
+            <div class="layui-tab-item">网络分配学员</div>
+        </div>
+        <!--tab-content-->
+    </div>
+    <!--tab-->
+
+</div>
+<script>
+    layui.use(['element','form'],function () {
+        var element = layui.element
+        var form = layui.form
+    })
+</script>
+
+</body>
+</html>

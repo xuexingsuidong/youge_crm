@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/css/city-picker.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/lib/layui/css/layui.css">
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/xadmin.js"></script>
+    <script src="/lib/layui/layui.js"></script>
+    <script src="/js/xcity.js"></script>
+    <script src="/js/cookie.js"></script>
+    <style>
+        .tocenter{
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-container">
+    <form action="/admin/toadd" class="layui-form">
+        <fieldset class="layui-elem-field">
+            <legend>新增用户</legend>
+            <div class="layui-field-box">
+                <div class="">
+                    <!--tocenter-->
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label"><h3>基本信息</h3></label>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="color:red">姓名:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">性别:</label>
+                        <div class="layui-input-block">
+                            <select name="gender" id="gender" class="layui-select">
+                                <option value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item" id="x-city">
+                        <label class="layui-form-label">地区:</label>
+                        <div class="layui-input-inline">
+                            <select name="province" lay-filter="province">
+                                <option value="">请选择省</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="city" lay-filter="city">
+                                <option value="">请选择市</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="area" lay-filter="area">
+                                <option value="">请选择县/区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--所属省市区-->
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">类别:</label>
+                        <div class="layui-input-block">
+                            <select name="type" id="type" class="layui-select">
+                                <option value="1">高中</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">出生日期:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="birthday" class="layui-input" id="bir1" placeholder="点击选择">
+                        </div>
+                    </div>
+                    <!--出生日期-->
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">文化分数:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="cultoralScore" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">身高/cm:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="height" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">体重/kg:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="width" class="layui-input">
+                        </div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">身份证号:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="idNumber" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">家庭住址:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="location" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-collapse">
+                        <div class="layui-colla-item">
+                            <h2 class="layui-colla-title">学校信息</h2>
+                            <div class="layui-colla-content">
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">所读学校:</label>
+                                    <div class="layui-input-block">
+                                        <select name="hid" class="layui-select">
+                                            <option value="0" th:each="item:${highSchool}" th:text="${item.name}" th:value="${item.id}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">年级:</label>
+                                    <div class="layui-input-block">
+                                        <select name="grade"  class="layui-select">
+                                            <option value="0">高一年级</option>
+                                            <option value="0">高二年级</option>
+                                            <option value="0">高三年级</option>
+                                            <option value="0">高四年级</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">班级:</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="classes" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <!--班级-->
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">文理科:</label>
+                                    <div class="layui-input-block">
+                                        <select name="wenlike" id="1" class="layui-select">
+                                            <option value="1">未分科</option>
+                                            <option value="1">文科</option>
+                                            <option value="1">理科</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">班主任姓名:</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input" name="tname">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">班主任电话:</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input" name="tel">
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">班主任qq:</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input" name="tqq">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">班主任微信:</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input" name="twechat">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--item-->
+
+                        <div class="layui-colla-item">
+                            <h2 class="layui-colla-title">联系信息</h2>
+                            <div class="layui-colla-content">
+
+                                <div class="tocenter">
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">关系:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="relationShip">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">姓名:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="cname">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">电话:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="ctelephone">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">qq:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="cqq">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">微信:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="cwechat">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">职业:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="coccupation">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">工作单位:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="workUnit">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-colla-item">
+                            <h2 class="layui-colla-title">咨询信息</h2>
+                            <div class="layui-colla-content">
+                                <!--咨询信息内容-->
+                                <div class="tocenter">
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">来源渠道:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="resourceFrom">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">意向专业:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" class="layui-input" name="intentionMajor">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label for="" class="layui-form-label">意向等级:</label>
+                                        <div class="layui-input-block">
+                                            <select name="itenttionLevevl" id="" class="layui-select">
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label for="" class="layui-form-label">咨询备注</label>
+                                    <div class="layui-input-block">
+                                        <textarea name="adviceNote" id="12"  class="layui-textarea"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--colla-item-->
+
+                        <div class="layui-colla-item">
+                            <!--<h2 class="layui-colla-title">其他信息</h2>-->
+                            <!--<div class="layui-colla-content">-->
+                                <!--<div class="tocenter">-->
+                                    <!--<div class="layui-form-item">-->
+                                        <!--<label for="" class="layui-form-label">特殊体质:</label>-->
+                                        <!--<div class="layui-input-block">-->
+                                            <!--<input type="text" class="layui-input">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="layui-form-item">-->
+                                        <!--<label for="" class="layui-form-label">特殊疾病:</label>-->
+                                        <!--<div class="layui-input-block">-->
+                                            <!--<input type="text" class="layui-input">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="layui-form-item">-->
+                                        <!--<label for="" class="layui-form-label">异常心理:</label>-->
+                                        <!--<div class="layui-input-block">-->
+                                            <!--<input type="text" class="layui-input">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="layui-form-item">-->
+                                        <!--<label for="" class="layui-form-label">身体状况:</label>-->
+                                        <!--<div class="layui-input-block">-->
+                                            <!--<input type="text" class="layui-input">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+
+
+                    </div>
+                    <!--colla-->
+                    <br>
+                    <div class="tocenter">
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </fieldset>
+    </form>
+</div>
+<script>
+
+    layui.use(['form','code','laydate','element'],function () {
+
+        form = layui.form;
+
+
+        form.on('submit(formDemo)',function (data) {
+            alert(JSON.stringify(data.field))
+            $.ajax({
+                type:'POST',
+                url:'/admin/add',
+                contentType:'application/json',
+                data:JSON.stringify(data.field),
+                success:function (result) {
+                    alert("成功")
+                }
+
+
+            })
+
+        })
+
+        var element = layui.element;
+
+        var laydate = layui.laydate;
+
+        laydate.render({
+            elem: '#bir1'
+        })
+
+
+        layui.code();
+        $('#x-city').xcity('山东','济南市','历下区');
+
+    })
+
+
+</script>
+</body>
+</html>

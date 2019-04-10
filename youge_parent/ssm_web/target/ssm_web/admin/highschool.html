@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/city-picker.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/xadmin.css">
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="../js/xadmin.js"></script>
+    <script src="../lib/layui/layui.js"></script>
+    <script src="../js/xcity.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+<div class="layui-container" id="app">
+    <div class="x-nav">
+    <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">系统管理</a>
+        <a href=""><cite>高中学校信息维护</cite></a>
+    </span>
+    </div>
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>学校名称</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="school in schools" >
+            <td v-text="school.name"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+        new Vue({
+        el:"#app",
+        data:{
+            schools:[]
+        },
+
+        created(){
+            this.init()
+        },
+        methods:{
+
+            init:function () {
+                $.get("http://localhost:8080/sys/highschool",function (data) {
+                    this.schools = data
+                    console.log(this.schools)
+
+                })
+            }
+        },
+
+
+
+    })
+
+</script>
+</body>
+</html>
